@@ -1,0 +1,50 @@
+{
+  "seed": 42,
+  "backbone": "amazon/chronos-2",
+  "backbone_revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "context_length": 512,
+  "prediction_length": 256,
+  "batch_rows": 384,
+  "flow_draws": 4,
+  "source_scale": 0.86,
+  "augmentation_rate": 0.2,
+  "train_split": "development_train",
+  "adam_betas": [
+    0.9,
+    0.99
+  ],
+  "weight_decay": 0.0,
+  "max_grad_norm": 1.0,
+  "ema_decay": 0.999,
+  "amp": true,
+  "gradient_checkpointing": true,
+  "pretrain": {
+    "steps": 2000000,
+    "learning_rate": 0.0001,
+    "warmup_steps": 500,
+    "training_source_scale": 1.0
+  },
+  "wsd": {
+    "steps": 100000,
+    "learning_rate": 0.0001,
+    "training_source_scale": 1.0
+  },
+  "pdd": {
+    "steps": 100000,
+    "learning_rate": 3e-05,
+    "head_lr_multiplier": 10.0,
+    "training_source_scale": 0.86,
+    "grid_size": 20,
+    "block_menu": [
+      1,
+      2,
+      5,
+      10,
+      20
+    ]
+  },
+  "model_name": "PathFM-Chaotic-125M",
+  "num_layers": 12,
+  "ffn_dim": 3072,
+  "reference_world_size": 4
+}
